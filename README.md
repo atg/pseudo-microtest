@@ -2,6 +2,23 @@
 
 Small tests for [pseudo](https://github.com/alehander42/pseudo)
 
+## Understanding
+
+Inside `microtests.py` are 40+ tests of language features. e.g. the first two tests are
+
+```py
+# [arithmetic.add]
+if 10 + 20 == 30: print("ok")
+
+# [arithmetic.mul]
+if 10 * 20 == 200: print("ok")
+```
+
+**pseudo-microtest** compiles each individual test into a YAML file using pseudo-python. Then it converts each YAML file into Ruby, JavaScript, Go, and back into Python. It then runs each microtest (and the original Python test), and compares the output.
+
+The final task of **pseudo-microtest** is to generate a pretty HTML table of the results of each test.
+
+
 ## Prereqs
 
 The point of this tool is to test pseudo with a lot of languages, so you'll need a lot of interpreters installed.
