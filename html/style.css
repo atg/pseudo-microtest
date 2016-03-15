@@ -1,0 +1,19 @@
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+.mt_status_bad {
+  background-color: red;
+}
+.mt_status_good {
+  background-color: green;
+}
+.mt_status_warn {
+  background-color: yellow;
+}
+.mt_status_untested {
+  background-color: white;
+}
