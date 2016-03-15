@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>pseudo microtests</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <table id="maintable">
+    <tr class="mt_top">
+      <th class="testname">Test Name</th>
+  
+<td>python</td>
+<td>ruby</td>
+<td>javascript</td>
+<td>go</td>
+</tr>
+<tr>
+<td class="mt_side">arithmetic.add</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">arithmetic.mul</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">arithmetic.sub</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">arithmetic.div</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">arithmetic.rem</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.and</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">logic.or</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">logic.eq</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.neq</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.lt</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.gt</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.lteq</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">logic.gteq</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">flow.for</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">flow.while</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">flow.continue</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">flow.break</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">flow.elif</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">flow.else</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">array.literal</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">array.in</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">array.notin</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">tuple.in</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">tuple.notin</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">string.concat</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">string.repeat</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">string.lrstrip</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">string.lstrip</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">string.rstrip</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.in</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.notin</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.union</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.intersection</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.subsetof</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">set.supersetof</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">var.int.immutable</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">var.int.mutable</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_warn">⚠️</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr>
+<td class="mt_side">func.void_void</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">func.int_void</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">func.intint_void</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">func.intint_int</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">class.imethod.void_void</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr>
+<td class="mt_side">class.imethod.void_void</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+
+  </table>
+</body>
+</html>
+  
