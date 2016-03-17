@@ -3,6 +3,7 @@ import os
 import subprocess
 import re
 import html
+import traceback
 from re import compile as rx
 from pprint import pprint
 
@@ -72,8 +73,9 @@ class Microtest():
             self.pseudo_ast = None
             self.variations = {}
             self.outputs = {}
+            exc_type, exc_value, exc_traceback = sys.exc_info()
             for lang, ext in LANGUAGES:
-                self.variations[ext] = 'PSEUDO-PYTHONERROR:<br>%s' % str(ex)
+                self.variations[ext] = '\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
                 self.outputs[ext] = ''
 
     # Generate variations
@@ -81,6 +83,7 @@ class Microtest():
         if self.pseudo_ast is None:
             return
         self.variations = {}
+        self.translation_errors = set()
         for lang, ext in LANGUAGES:
             try:
                 output_path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
@@ -89,7 +92,9 @@ class Microtest():
                     f.write(self.variations[ext])
                 print('~~ %s ~~' % ext)
             except Exception as e:
-                self.variations[ext] = 'TRANSLATE ERROR:<br>%s' % str(e)
+                exc_type, exc_value, exc_traceback = sys.exc_info()
+                self.translation_errors.add(ext)
+                self.variations[ext] = '\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
     
     def run_variations(self):
         self.statuses = {}
@@ -98,7 +103,7 @@ class Microtest():
 
         for lang, ext in LANGUAGES:
             path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
-            if not self.pseudo_ast or self.variations[ext].startswith('TRANSLATE ERROR:'):
+            if not self.pseudo_ast or ext in self.translation_errors:
                 self.outputs[ext] = ''
                 self.statuses[ext] = 'bad'
                 continue
@@ -190,7 +195,7 @@ def generateHTML():
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="ascetic.css" rel="stylesheet">
+    <link href="tomorrow.css" rel="stylesheet">
 </head>
 <body>
     <table id="maintable">
