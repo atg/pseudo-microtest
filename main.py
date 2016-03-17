@@ -6,6 +6,9 @@ import html
 from re import compile as rx
 from pprint import pprint
 import json
+import re
+
+REMOVE_ANSI_RE = rx(r'\x1b[^m]*m')
 
 def obj_to_json_html(obj):
   return html.escape(json.dumps(obj))
@@ -28,6 +31,8 @@ import pseudo
 
 # Some of the outputs have too much scrolling; narrow it down:
 def preprocess_output(txt):
+  txt = REMOVE_ANSI_RE.sub('', txt)
+  
   p1 = PSEUDOPYTHON_PATH.rstrip('/')
   p2 = PSEUDO_PATH.rstrip('/')
   txt = txt.replace(p1, '[PSEUDO_PYTHON]')
