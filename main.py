@@ -6,7 +6,8 @@ import html
 from re import compile as rx
 from pprint import pprint
 import json
-import re
+import traceback
+
 
 REMOVE_ANSI_RE = rx(r'\x1b[^m]*m')
 
@@ -27,7 +28,7 @@ def setup_python_path():
 
 setup_python_path()
 import pseudo
-
+import pseudo_python
 
 # Some of the outputs have too much scrolling; narrow it down:
 def preprocess_output(txt):
@@ -70,6 +71,7 @@ LANGUAGES = [
   ("ruby", "rb"),
   ("javascript", "js"),
   ("go", "go"),
+  # ("c#", "cs"),
   # ("c++", "cpp"),
 ]
 
@@ -104,50 +106,46 @@ class Microtest():
   
   # Generate _original.pseudo.yaml
   def generate_yaml(self):
+    self.pseudo_python_passed = False
     for lang, ext in LANGUAGES:
       self.statuses[ext] = 'bad'
-    self.pseudo_python_passed = False
+    
+    self.yaml_path = os.path.join(self.dirname, '_original.pseudo.yaml')
+    # write to a file as an example and for debugging
     try:
-      subprocess.check_output([
-        '/usr/bin/env', 'PYTHONPATH=%s:%s' % (PSEUDO_PATH, PSEUDOPYTHON_PATH), 'python3',
-        os.path.join(PSEUDOPYTHON_PATH, 'pseudo_python', 'main.py'),
-        self.original_path,
-      ], stderr=subprocess.STDOUT)
-      
+      self.pseudo_ast = pseudo_python.translate_to_yaml(self.code)
+      with open(self.yaml_path, 'w') as f:
+        f.write(self.pseudo_ast)
       self.pseudo_python_passed = True
-      
-    except subprocess.CalledProcessError as e:
+    except Exception as ex:
+      self.pseudo_ast = None
+      exc_type, exc_value, exc_traceback = sys.exc_info()
       self.global_errors.append({
         'kind': 'generate_yaml',
-        'output': preprocess_output(e.output.decode('utf-8')),
+        'output': preprocess_output('\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback))),
       })
   
   # Generate variations
   def generate_variations(self):
-    if not self.pseudo_python_passed:
-      return
+    if not self.pseudo_python_passed: return
+    if self.pseudo_ast is None: return
+    
     for lang, ext in LANGUAGES:
       try:
+        output_path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
+        self.variations[ext] = pseudo.generate_from_yaml(self.pseudo_ast, lang)
+        with open(output_path, 'w') as f:
+          f.write(self.variations[ext])
         print('~~ %s ~~' % ext)
-        output = subprocess.check_output([
-          '/usr/bin/env', 'PYTHONPATH=%s:%s' % (PSEUDO_PATH, PSEUDOPYTHON_PATH), 'python3',
-          os.path.join(PSEUDOPYTHON_PATH, 'pseudo_python', 'main.py'),
-          '_original.py',
-          '%s.%s' % (self.key, ext),
-          
-          # os.path.join(PSEUDO_PATH, 'pseudo', 'main.py'),
-          # '_original.pseudo.yaml',
-          # '_original.py',
-          # '%s.%s' % (self.key, ext),
-          
-        ], cwd=os.path.abspath(self.dirname), stderr=subprocess.STDOUT)
-      except subprocess.CalledProcessError as e:
+      except Exception as e:
+        print('~~ %s [error] ~~' % ext)
+        exc_type, exc_value, exc_traceback = sys.exc_info()
         self.errors[ext].append({
           'kind': 'generate_variations',
-          'output': preprocess_output(e.output.decode('utf-8')),
+          'output': preprocess_output('\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback))),
         })
         self.statuses[ext] = 'bad'
-  
+    
   def run_variations(self):
     original_output = run_at_path('py', self.original_path)
     
