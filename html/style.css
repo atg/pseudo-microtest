@@ -17,3 +17,24 @@ table {
 .mt_status_untested {
   background-color: white;
 }
+
+table th, td {
+    width: 18%;
+    padding: 10px;
+}
+
+.status {
+    height: 20px;
+    margin-top: 0;
+}
+
+.results {
+    display: none;
+    background-color: white;
+}
+
+.languages {
+    display: none;
+}
+
+

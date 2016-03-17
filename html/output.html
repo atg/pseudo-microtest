@@ -2,327 +2,2553 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>pseudo microtests</title>
+    <title>pseudo microtests</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <table id="maintable">
-    <tr class="mt_top">
-      <th class="testname">Test Name</th>
-  
+    <table id="maintable">
+        <tr class="mt_top">
+            <th class="testname">Test Name</th>
+    
 <td>python</td>
 <td>ruby</td>
 <td>javascript</td>
 <td>go</td>
 </tr>
-<tr>
+<tr class="statuses">
 <td class="mt_side">arithmetic.add</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 + 20 == 30: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 + 20 == 30:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 == 10
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 + 20 == 30) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 + 20 == 30 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">arithmetic.mul</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 * 20 == 200: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 * 20 == 200:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 * 20 == 200
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 * 20 == 200) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 * 20 == 200 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">arithmetic.neg</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if -10 + 20 == 10: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">arithmetic.sub</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 - 20 == -10: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">arithmetic.div</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 20 / 10 == 2: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 20 / 10 == 2:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 20 / 10 == 2
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (20 / 10 == 2) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 20 / 10 == 2 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">arithmetic.rem</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 5 % 2 == 1: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 5 % 2 == 1:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 5 % 2 == 1
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (5 % 2 == 1) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 5 % 2 == 1 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">arithmetic.pow</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br>/home/penka-was-abducted/pseudo-microtest/microtests/arithmetic.pow/arithmetic.pow.js:1
+(function (exports, require, module, __filename, __dirname) { if (3 ** 3 == 27) {
+                                                                     ^
+
+SyntaxError: Unexpected token *
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:373:25)
+    at Object.Module._extensions..js (module.js:416:10)
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+    at Function.Module.runMain (module.js:441:10)
+    at startup (node.js:134:18)
+    at node.js:962:3
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/arithmetic.pow/arithmetic.pow.go:5: invalid indirect of 3 (type untyped number)
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 3 ** 3 == 27: print("ok")
+
+
+
+## - Logic -
+</code></pre></td>
+<td><div><pre><code class=python>if 3 ** 3 == 27:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 3 ** 3 == 27
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (3 ** 3 == 27) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 3 ** 3 == 27 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">logic.falsiness</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "": print("not ok")
+elif 0: print("not ok")
+elif 0.0: print("not ok")
+elif []: print("not ok")
+elif {}: print("not ok")
+elif set(): print("not ok")
+elif None: print("not ok")
+elif False: print("not ok")
+else: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>set is not defined on line 6 column 5:
+elif set(): print("not ok")
+     ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>set is not defined on line 6 column 5:
+elif set(): print("not ok")
+     ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>set is not defined on line 6 column 5:
+elif set(): print("not ok")
+     ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>set is not defined on line 6 column 5:
+elif set(): print("not ok")
+     ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">logic.truthiness</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+ok
+ok
+ok
+ok
+ok
+ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if bool("hello"): print("ok")
+if bool(10): print("ok")
+if bool(3.14): print("ok")
+if bool([1]): print("ok")
+if bool({1}): print("ok")
+if bool({"k": 1}): print("ok")
+if bool(True): print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>bool is not defined on line 1 column 3:
+if bool("hello"): print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>bool is not defined on line 1 column 3:
+if bool("hello"): print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>bool is not defined on line 1 column 3:
+if bool("hello"): print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>bool is not defined on line 1 column 3:
+if bool("hello"): print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">logic.not</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if not True == False: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 7:
+if not True == False: print("ok")
+       ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 7:
+if not True == False: print("ok")
+       ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 7:
+if not True == False: print("ok")
+       ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 7:
+if not True == False: print("ok")
+       ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.and</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if True and False == False: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 12:
+if True and False == False: print("ok")
+            ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 12:
+if True and False == False: print("ok")
+            ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 12:
+if True and False == False: print("ok")
+            ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 12:
+if True and False == False: print("ok")
+            ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.or</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if True or False == True: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 11:
+if True or False == True: print("ok")
+           ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 11:
+if True or False == True: print("ok")
+           ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 11:
+if True or False == True: print("ok")
+           ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>Boolean not comparable with Boolean on line 1 column 11:
+if True or False == True: print("ok")
+           ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.eq</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+ok
+____</pre></div></td>
+<td><div><pre>ok
+ok
+____</pre></div></td>
+<td><div><pre>ok
+ok
+____</pre></div></td>
+<td><div><pre>ok
+ok
+____</pre></div></td>
+<td><div><pre>ok
+ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 == 10: print("ok")
+if "foo" == "fo" + "o": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 == 10:
+    print('ok')
+
+if 'foo' == 'fo' + 'o':
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 == 10
+  puts 'ok'
+end
+
+if 'foo' == 'fo' + 'o'
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 == 10) {
+  console.log('ok');
+} 
+
+if ('foo' == 'fo' + 'o') {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 == 10 {
+		fmt.Println("ok")
+	} 
+
+	if "foo" == "fo" + "o" {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.neq</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 != 20: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 != 20:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 != 20
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 != 20) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 != 20 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.lt</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 < 20: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 < 20:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 < 20
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 < 20) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 < 20 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.gt</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 20 > 10: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 20 > 10:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 20 > 10
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (20 > 10) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 20 > 10 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.lteq</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 <= 10: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 10 <= 10:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 <= 10
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 <= 10) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 <= 10 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">logic.gteq</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 >= 10: print("ok")
+
+
+
+## - Control Flow -
+</code></pre></td>
+<td><div><pre><code class=python>if 10 >= 10:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 10 >= 10
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (10 >= 10) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if 10 >= 10 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.for</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">for x in range(10):
+  if x == 9:
+    print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>range expected two indices</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>range expected two indices</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>range expected two indices</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>range expected two indices</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.while</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">while False:
+  pass
+print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.continue</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">a = -1
+for x in range(10):
+  if x >= 5: continue
+  a = x
+if a == 4: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.break</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">a = -1
+for x in range(10):
+  a = x
+  if x == 5: break
+if a == 5: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">flow.ternary</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">print("ok" if True else "not ok")
+print("not ok" if False else "ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_ifexp'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_ifexp'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_ifexp'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_ifexp'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.elif</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if False:
+  print("not ok")
+elif True:
+  print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if False:
+    print('not ok')
+elif True:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if false
+  puts 'not ok'
+elsif true
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (false) {
+  console.log('not ok');
+} else if (true) {
+  console.log('ok');
+} 
+
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if false {
+		fmt.Println("not ok")
+	} else if true {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">flow.else</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if False:
+  print("not ok")
+else:
+  print("ok")
+
+
+
+## - Arrays -
+</code></pre></td>
+<td><div><pre><code class=python>if False:
+    print('not ok')
+else:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if false
+  puts 'not ok'
+else
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if (false) {
+  console.log('not ok');
+} else {
+  console.log('ok');
+}
+
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if false {
+		fmt.Println("not ok")
+	} else {
+		fmt.Println("ok")
+	}
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">array.literal</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if [10, 20, 30][1] == 20: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if [10, 20, 30][1] == 20:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if [10, 20, 30][1] == 20
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if ([10, 20, 30][1] == 20) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if []int {10, 20, 30}[1] == 20 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">array.in</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 in [10, 20, 30]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a List#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">array.notin</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 42 not in [10, 20, 30]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a List#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a List#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.subscript_end</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if [10, 20, 30][-1] == 30: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'dict' object has no attribute 'pseudo_type'</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.slice_az</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.slice.a</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.slice.z</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 1 column 3:
+if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.pop</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [10, 20, 30]
+xs.pop()
+if xs == [10, 20]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.append</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [10, 20, 30]
+xs.append(40)
+if xs == [10, 20, 30, 40]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.extend</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [10, 20]
+xs.extend([30, 40])
+if xs == [10, 20, 30, 40]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 3 column 3:
+if xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.copy</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [10, 20, 30, 40, 50]
+ys = xs[:]
+xs.pop()
+if ys == [10, 20, 30, 40, 50]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 4 column 3:
+if ys == [10, 20, 30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 4 column 3:
+if ys == [10, 20, 30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 4 column 3:
+if ys == [10, 20, 30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 4 column 3:
+if ys == [10, 20, 30, 40, 50]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.del</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [10, 20, 30]
+del xs[0]
+xs.pop()
+if xs == [20, 30]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_delete'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_delete'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_delete'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_delete'</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.concat</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">xs = [30, 40]
+if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 2 column 3:
+if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 2 column 3:
+if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 2 column 3:
+if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>List[Int] not comparable with List[Int] on line 2 column 3:
+if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">array.len</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if len([10, 20, 30]) == 3: print("ok")
+
+
+## - Tuples -
+</code></pre></td>
+<td><div><pre><code class=python>if len([10, 20, 30]) == 3:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if [10, 20, 30].length == 3
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if ([10, 20, 30].length == 3) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if len([]int {10, 20, 30}) == 3 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">tuple.in</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 in (10, 20, 30): print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a Array#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">tuple.notin</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 42 not in (10, 20, 30): print("ok")
+
+
+
+## - Strings -
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a Array#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a Array#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">string.index</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/string.index/string.index.go:5: cannot convert "e" to type byte
+microtests/string.index/string.index.go:5: invalid operation: "hello"[1] == "e" (mismatched types byte and string)
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "hello"[1] == "e": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 'hello'[1] == 'e':
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 'hello'[1] == 'e'
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if ('hello'[1] == 'e') {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if "hello"[1] == "e" {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">string.format_bare</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "he%so" % "ll" == "hello": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 'he{0}o'.format('ll') == 'hello':
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if "he#{'ll'}o" == 'hello'
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if ('he' + 'll' + 'o' == 'hello') {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if fmt.Sprintf("he%so", "ll") == "hello" {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">string.format_tuple</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "%se%so" % ("h", "ll") == "hello": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>unsupported format character ':' (0x3a) at index 17</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>unsupported format character ':' (0x3a) at index 17</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>unsupported format character ':' (0x3a) at index 17</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>unsupported format character ':' (0x3a) at index 17</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">string.concat</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "hello" + "world" == "helloworld": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>if 'hello' + 'world' == 'helloworld':
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>if 'hello' + 'world' == 'helloworld'
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>if ('hello' + 'world' == 'helloworld') {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	if "hello" + "world" == "helloworld" {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">string.repeat</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if "badger" * 3 == "badgerbadgerbadger": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a String#repeat method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a String#repeat method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a String#repeat method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a String#repeat method</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">string.lrstrip</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if " badger ".strip() == "badger": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#strip on line 1 column 3:
+if " badger ".strip() == "badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#strip on line 1 column 3:
+if " badger ".strip() == "badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#strip on line 1 column 3:
+if " badger ".strip() == "badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#strip on line 1 column 3:
+if " badger ".strip() == "badger": print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">string.lstrip</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if " badger ".lstrip() == "badger ": print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#lstrip on line 1 column 3:
+if " badger ".lstrip() == "badger ": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#lstrip on line 1 column 3:
+if " badger ".lstrip() == "badger ": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#lstrip on line 1 column 3:
+if " badger ".lstrip() == "badger ": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#lstrip on line 1 column 3:
+if " badger ".lstrip() == "badger ": print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">string.rstrip</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if " badger ".rstrip() == " badger": print("ok")
+
+
+
+## - Sets -
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#rstrip on line 1 column 3:
+if " badger ".rstrip() == " badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#rstrip on line 1 column 3:
+if " badger ".rstrip() == " badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#rstrip on line 1 column 3:
+if " badger ".rstrip() == " badger": print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>pseudo-python can't infer the type of String#rstrip on line 1 column 3:
+if " badger ".rstrip() == " badger": print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.in</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 in {10, 20, 30}: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a Set#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.notin</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if 10 not in {20, 30}: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>TRANSLATE ERROR:<br>PythonTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=ruby>TRANSLATE ERROR:<br>RubyTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=javascript>TRANSLATE ERROR:<br>JSTranslator doesn't have a Set#include? method</code></pre></div></td>
+<td><div><pre><code class=go>TRANSLATE ERROR:<br>GolangTranslator doesn't have a Set#include? method</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.union</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if {20, 30} | {10, 20} == {10, 20, 30}: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>wrong types for |: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>wrong types for |: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>wrong types for |: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>wrong types for |: Set[Int] and Set[Int]</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.intersection</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if {20, 30} & {10, 20} == {20}: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>wrong types for &: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>wrong types for &: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>wrong types for &: Set[Int] and Set[Int]</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>wrong types for &: Set[Int] and Set[Int]</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.subsetof</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if {20, 30} <= {10, 20, 30}: print("ok")
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {20, 30} <= {10, 20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {20, 30} <= {10, 20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {20, 30} <= {10, 20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {20, 30} <= {10, 20, 30}: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">set.supersetof</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">if {10, 20, 30} >= {20, 30}: print("ok")
+
+
+
+## - Variables -
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {10, 20, 30} >= {20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {10, 20, 30} >= {20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {10, 20, 30} >= {20, 30}: print("ok")
+   ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>Set[Int] not comparable with Set[Int] on line 1 column 3:
+if {10, 20, 30} >= {20, 30}: print("ok")
+   ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">var.int.immutable</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">x = 6
+y = 7
+if x * y == 42: print('ok')
+</code></pre></td>
+<td><div><pre><code class=python>x = 6
+y = 7
+if x * y == 42:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>x = 6
+y = 7
+if x * y == 42
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>var x = 6;
+var y = 7;
+if (x * y == 42) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	x := 6
+	y := 7
+	if x * y == 42 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">var.int.mutable</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_warn">⚠️</td>
 <td class="mt_status mt_status_good">✅</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">x = 6
+y = 7
+x *= y
+if x == 42 and y == 7: print('ok')
+</code></pre></td>
+<td><div><pre><code class=python>x = 6
+y = 7
+x *= y
+if x == 42 and y == 7:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>x = 6
+y = 7
+x *= y
+if x == 42 && y == 7
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>var x = 6;
+var y = 7;
+x += y;
+if (x == 42 && y == 7) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	x := 6
+	y := 7
+	x *= y
+	if x == 42 && y == 7 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">var.swap</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/var.swap/var.swap.go:8: no new variables on left side of :=
+microtests/var.swap/var.swap.go:9: no new variables on left side of :=
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">x = 10
+y = 20
+x, y = y, x
+if x == 20 and y == 10: print("ok")
+
+
+
+## - Yield -
+</code></pre></td>
+<td><div><pre><code class=python>x = 10
+y = 20
+_old_x = x
+x = y
+y = _old_x
+if x == 20 and y == 10:
+    print('ok')
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>x = 10
+y = 20
+_old_x = x
+x = y
+y = _old_x
+if x == 20 && y == 10
+  puts 'ok'
+end
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>var x = 10;
+var y = 20;
+var _old_x = x;
+var x = y;
+var y = _old_x;
+if (x == 20 && y == 10) {
+  console.log('ok');
+} 
+</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func main() {
+	x := 10
+	y := 20
+	OldX := x
+	x := y
+	y := OldX
+	if x == 20 && y == 10 {
+		fmt.Println("ok")
+	} 
+
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">yield</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">def foo():
+  for x in [10, 20, 30]:
+    yield x * 2
+if list(foo()) == [20, 40, 60]: print('ok')
+
+
+
+## - Functions -
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_yield'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_yield'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_yield'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_yield'</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">func.void_void</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/func.void_void/func.void_void.go:4: undefined: None
+microtests/func.void_void/func.void_void.go:6: missing return at end of function
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">def foo():
+  print('ok')
+foo()
+</code></pre></td>
+<td><div><pre><code class=python>def foo():
+    print('ok')
+
+foo()
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>def foo
+  puts 'ok'
+end
+
+foo
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>function foo() {
+  console.log('ok');
+}
+
+foo();</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func Foo() *None {
+	fmt.Println("ok")
+}
+
+func main() {
+	Foo()
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">func.int_void</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/func.int_void/func.int_void.go:4: undefined: void
+microtests/func.int_void/func.int_void.go:9: missing return at end of function
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">def foo(x: int):
+  if x == 42:
+    print('ok')
+foo(42)
+</code></pre></td>
+<td><div><pre><code class=python>def foo(x):
+    if x == 42:
+        print('ok')
+
+foo(42)
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>def foo(x)
+  if x == 42
+    puts 'ok'
+  end
+
+end
+
+foo(42)
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>function foo(x) {
+  if (x == 42) {
+    console.log('ok');
+  } 
+
+}
+
+foo(42);</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func Foo(x int) void {
+	if x == 42 {
+		fmt.Println("ok")
+	} 
+
+}
+
+func main() {
+	Foo(42)
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">func.intint_void</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/func.intint_void/func.intint_void.go:4: undefined: void
+microtests/func.intint_void/func.intint_void.go:9: missing return at end of function
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">def foo(x: int, y: int):
+  if x * y == 42:
+    print('ok')
+foo(6, 7)
+</code></pre></td>
+<td><div><pre><code class=python>def foo(x, y):
+    if x * y == 42:
+        print('ok')
+
+foo(6, 7)
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>def foo(x, y)
+  if x * y == 42
+    puts 'ok'
+  end
+
+end
+
+foo(6, 7)
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>function foo(x, y) {
+  if (x * y == 42) {
+    console.log('ok');
+  } 
+
+}
+
+foo(6, 7);</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+func Foo(x int, y int) void {
+	if x * y == 42 {
+		fmt.Println("ok")
+	} 
+
+}
+
+func main() {
+	Foo(6, 7)
+}
+</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">func.intint_int</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">def twice(x: int, y: int): # TODO: needs an -> int type annotation but my editor shits a brick if I include that
+  return x * y
+if twice(6, 7) == 42:
+  print('ok')
+
+
+
+## - Classes -
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>wrong type Int
+expected Void return type for twice on line 2 column 2:
+  return x * y
+  ^</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>wrong type Int
+expected Void return type for twice on line 2 column 2:
+  return x * y
+  ^</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>wrong type Int
+expected Void return type for twice on line 2 column 2:
+  return x * y
+  ^</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>wrong type Int
+expected Void return type for twice on line 2 column 2:
+  return x * y
+  ^</code></pre></div></td>
+</tr>
+<tr class="statuses">
 <td class="mt_side">class.imethod.void_void</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 <td class="mt_status mt_status_bad">❌</td>
 </tr>
-<tr>
-<td class="mt_side">class.imethod.void_void</td>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+<td><div><pre>____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">class Barney:
+  def __init__(self):
+    pass
+  def happyAndKnowsIt(self):
+    print('ok')
+barney = Barney()
+barney.happyAndKnowsIt()
+</code></pre></td>
+<td><div><pre><code class=python>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=ruby>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=javascript>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+<td><div><pre><code class=go>PSEUDO-PYTHONERROR:<br>'ASTTranslator' object has no attribute '_translate_pass'</code></pre></div></td>
+</tr>
+<tr class="statuses">
+<td class="mt_side">class.attributes</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
+<td class="mt_status mt_status_good">✅</td>
 <td class="mt_status mt_status_bad">❌</td>
-<td class="mt_status mt_status_bad">❌</td>
-<td class="mt_status mt_status_bad">❌</td>
-<td class="mt_status mt_status_bad">❌</td>
+</tr>
+<tr class="results">
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>ok
+____</pre></div></td>
+<td><div><pre>RUN ERROR:<br># command-line-arguments
+microtests/class.attributes/class.attributes.go:12: undefined: None
+microtests/class.attributes/class.attributes.go:13: this.status undefined (type *Barney has no field or method status, but does have Status)
+microtests/class.attributes/class.attributes.go:14: missing return at end of function
+____</pre></div></td>
+</tr>
+<tr class="languages">
+<td><pre><code class="python">class Barney:
+  def __init__(self):
+    self.status = 'ok'
+  def happyAndKnowsIt(self):
+    print(self.status)
+barney = Barney()
+barney.happyAndKnowsIt()
+</code></pre></td>
+<td><div><pre><code class=python>class Barney:
+    def __init__(self):
+        self.status = 'ok'
+
+    def happyAndKnowsIt(self):
+        print(self.status)
+
+barney = Barney()
+barney.happyAndKnowsIt()
+
+</code></pre></div></td>
+<td><div><pre><code class=ruby>class Barney
+  def initialize
+    @status = 'ok'
+  end
+
+  def happyAndKnowsIt
+    puts @status
+  end
+
+end
+
+barney = Barney.new
+barney.happyAndKnowsIt
+
+</code></pre></div></td>
+<td><div><pre><code class=javascript>function Barney() {
+  this.status = 'ok';
+}
+
+Barney.prototype.happyAndKnowsIt = function () {
+  console.log(this.status);
+}
+
+var barney = new Barney();
+barney.happyAndKnowsIt();</code></pre></div></td>
+<td><div><pre><code class=go>package main
+
+import "fmt"
+type Barney struct {
+	Status string
+}
+
+func newBarney() *Barney {
+	return &Barney{"ok"}
+}
+
+func (this *Barney) HappyAndKnowsIt() *None {
+	fmt.Println(this.status)
+}
+
+func main() {
+	barney := newBarney()
+	barney.HappyAndKnowsIt()
+}
+</code></pre></div></td>
 </tr>
 
-  </table>
+    </table>
+    <script type='text/javascript' src='output.js'>
+    </script>
 </body>
 </html>
-  
+    
