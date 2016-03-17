@@ -27,7 +27,8 @@ tr:nth-child(even) {
   cursor: default;
 }
 .mt_status_bad {
-  background-color: red;
+  /* background-color: red; */
+  background-color: white;
 }
 .mt_status_good {
   background-color: green;

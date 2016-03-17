@@ -287,7 +287,7 @@ def foo(x: int, y: int):
 foo(6, 7)
 
 # [func.intint_int]
-def twice(x: int, y: int): # TODO: needs an -> int type annotation but my editor shits a brick if I include that
+def twice(x: int, y: int) -> int:
   return x * y
 if twice(6, 7) == 42:
   print('ok')

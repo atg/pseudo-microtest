@@ -33,6 +33,9 @@ def preprocess_output(txt):
   txt = txt.replace(p1, '[PSEUDO_PYTHON]')
   txt = txt.replace(p2, '[PSEUDO]')
   txt = txt.replace('Contents/MacOS/Python: ', 'Contents/MacOS/Python:\n  ')
+  txt = txt.strip()
+  if not txt:
+    return '[no output received]'
   return txt
 
 def run_at_path(ext, path):
@@ -67,14 +70,19 @@ LANGUAGES = [
 
 class Microtest():
   def __init__(self, key, code):
+    if '\n## ' in code:
+      code = code.partition('\n## ')[0]
+    
     assert '/' not in key
     self.key = key
     self.code = code
     self.statuses = {}
     
     self.global_errors = []
-    self.codes = {}
+    self.codes = { ext: "" for lang, ext in LANGUAGES }
     self.errors = { ext: [] for lang, ext in LANGUAGES }
+    self.statuses = {}
+  
   
   # Make directories
   def make_dirs(self):
@@ -91,6 +99,8 @@ class Microtest():
   
   # Generate _original.pseudo.yaml
   def generate_yaml(self):
+    for lang, ext in LANGUAGES:
+      self.statuses[ext] = 'bad'
     self.pseudo_python_passed = False
     try:
       subprocess.check_output([
@@ -98,15 +108,19 @@ class Microtest():
         os.path.join(PSEUDOPYTHON_PATH, 'pseudo_python', 'main.py'),
         self.original_path,
       ], stderr=subprocess.STDOUT)
+      
+      self.pseudo_python_passed = True
+      
     except subprocess.CalledProcessError as e:
       self.global_errors.append({
         'kind': 'generate_yaml',
         'output': preprocess_output(e.output.decode('utf-8')),
       })
-    self.pseudo_python_passed = True
   
   # Generate variations
   def generate_variations(self):
+    if not self.pseudo_python_passed:
+      return
     for lang, ext in LANGUAGES:
       try:
         print('~~ %s ~~' % ext)
@@ -127,32 +141,40 @@ class Microtest():
           'kind': 'generate_variations',
           'output': preprocess_output(e.output.decode('utf-8')),
         })
+        self.statuses[ext] = 'bad'
   
   def run_variations(self):
-    self.statuses = {}
     original_output = run_at_path('py', self.original_path)
+    
+    if not self.pseudo_python_passed:
+      return
     
     for lang, ext in LANGUAGES:
       path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
       print('Running %s code' % lang, path)
       
       try:
+        try:
+          with open(path, 'r') as f:
+            self.codes[ext] = f.read()
+        except Exception:
+          pass
+        
         txt = run_at_path(ext, path)
         lower_txt = txt.lower()
-        
-        with open(path, 'r') as f:
-          self.codes[ext] = f.read()
         
         # Push an error just in case
         self.errors[ext].append({
           'kind': 'run_variations_exit0',
           'output': preprocess_output(txt.decode('utf-8')),
         })
+        self.statuses[ext] = 'bad'
       except subprocess.CalledProcessError as e:
         self.errors[ext].append({
           'kind': 'run_variations_exit1',
           'output': preprocess_output(e.output.decode('utf-8')),
         })
+        self.statuses[ext] = 'bad'
         continue
       except Exception:
         self.statuses[ext] = 'bad'
@@ -211,8 +233,8 @@ def main():
   print("there are %d tests" % len(microtests))
   print(pseudo)
   
-  global microtests
-  microtests = microtests[:5]
+  # global microtests
+  # microtests = microtests[:3]
   for mt in microtests:
     mt.make_dirs()
     mt.generate_original_py()
@@ -249,7 +271,7 @@ def generateHTML():
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css">
   
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-tomorrow.min.css" rel="stylesheet" type="text/css">
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-tomorrow.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css" rel="stylesheet" type="text/css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
@@ -269,6 +291,9 @@ $(function() {
     var errors = JSON.parse($(this).attr("errors"));
     
     function makeCodeBlock(code, lang) {
+      if (!code || !code.length) {
+        return $("<pre><em>No code was generated because an error occurred in pseudo-python. (see below)</em></pre>")[0];
+      }
       var pre = $("<pre>");
       var code = $("<code>").addClass("language-" + lang).text(code);
       pre.append(code);
@@ -328,7 +353,6 @@ $(function() {
         obj_to_json_html(mt.codes.get(ext)),
         html.escape(lang),
         html.escape(symbol))
-      print("CODE GET", mt.codes)
     yield '</tr>'
   
   yield '''
