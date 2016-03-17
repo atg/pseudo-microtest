@@ -43,22 +43,23 @@ elif False: print("not ok")
 else: print("ok")
 
 # [logic.truthiness]
-if bool("hello"): print("ok")
-if bool(10): print("ok")
-if bool(3.14): print("ok")
-if bool([1]): print("ok")
-if bool({1}): print("ok")
-if bool({"k": 1}): print("ok")
-if bool(True): print("ok")
+if "hello": print("ok")
+if 10: print("ok")
+if 3.14: print("ok")
+if [1]: print("ok")
+if {1}: print("ok")
+if {"k": 1}: print("ok")
+if True: print("ok")
+
 
 # [logic.not]
 if (not True) == False: print("ok")
 
 # [logic.and]
-if True and False == False: print("ok")
+if (True and False) == False: print("ok")
 
 # [logic.or]
-if True or False == True: print("ok")
+if (True or False) == True: print("ok")
 
 # [logic.eq]
 if 10 == 10: print("ok")
@@ -125,60 +126,60 @@ else:
 
 
 
-## - Arrays -
-# [array.literal]
+## - Lists -
+# [list.literal]
 if [10, 20, 30][1] == 20: print("ok")
 
-# [array.in]
+# [list.in]
 if 10 in [10, 20, 30]: print("ok")
 
-# [array.notin]
+# [list.notin]
 if 42 not in [10, 20, 30]: print("ok")
 
-# [array.subscript_end]
+# [list.subscript_end]
 if [10, 20, 30][-1] == 30: print("ok")
 
-# [array.slice_az]
+# [list.slice_az]
 if [10, 20, 30, 40, 50][2:4] == [30, 40]: print("ok")
 
-# [array.slice.a]
+# [list.slice.a]
 if [10, 20, 30, 40, 50][2:] == [30, 40, 50]: print("ok")
 
-# [array.slice.z]
+# [list.slice.z]
 if [10, 20, 30, 40, 50][:4] == [10, 20, 30, 40]: print("ok")
 
-# [array.pop]
+# [list.pop]
 xs = [10, 20, 30]
 xs.pop()
 if xs == [10, 20]: print("ok")
 
-# [array.append]
+# [list.append]
 xs = [10, 20, 30]
 xs.append(40)
 if xs == [10, 20, 30, 40]: print("ok")
 
-# [array.extend]
+# [list.extend]
 xs = [10, 20]
 xs.extend([30, 40])
 if xs == [10, 20, 30, 40]: print("ok")
 
-# [array.copy]
+# [list.copy]
 xs = [10, 20, 30, 40, 50]
 ys = xs[:]
 xs.pop()
 if ys == [10, 20, 30, 40, 50]: print("ok")
 
-# [array.del]
+# [list.del]
 xs = [10, 20, 30]
 del xs[0]
 xs.pop()
 if xs == [20, 30]: print("ok")
 
-# [array.concat]
+# [list.concat]
 xs = [30, 40]
 if [10, 20] + xs == [10, 20, 30, 40]: print("ok")
 
-# [array.len]
+# [list.len]
 if len([10, 20, 30]) == 3: print("ok")
 
 
