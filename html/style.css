@@ -1,9 +1,30 @@
 body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  font-size: 14px;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
 }
 
 table {
   border-collapse: collapse;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+tr:nth-child(even) {
+  background-color: hsl(220, 0%, 97%);
+}
+.mt_side {
+  padding-left: 20px;
+}
+.mt_status {
+  width: 12%;
+  text-align: center;
+  cursor: default;
 }
 .mt_status_bad {
   background-color: red;
@@ -16,4 +37,30 @@ table {
 }
 .mt_status_untested {
   background-color: white;
+}
+
+#errors pre {
+    /* white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word; */
+    
+}
+#errors {
+  background-color: hsl(60, 50%, 95%);
+  padding: 20px;
+  color: hsl(350, 50%, 10%);
+  position: absolute;
+  width: 65%;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  overflow: scroll;
+  position: fixed;
+  height: 100vh;
+}
+#errors h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
 }

@@ -52,7 +52,7 @@ if bool({"k": 1}): print("ok")
 if bool(True): print("ok")
 
 # [logic.not]
-if not True == False: print("ok")
+if (not True) == False: print("ok")
 
 # [logic.and]
 if True and False == False: print("ok")

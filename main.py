@@ -5,8 +5,13 @@ import re
 import html
 from re import compile as rx
 from pprint import pprint
+import json
+
+def obj_to_json_html(obj):
+  return html.escape(json.dumps(obj))
 
 def setup_python_path():
+  global PSEUDO_PATH, PSEUDOPYTHON_PATH
   # Laziness is the author's perogative
   if os.path.expanduser('~') == '/Users/alexgordon':
     PSEUDO_PATH = '/Users/alexgordon/temp/forks/pseudo' # TODO: don't hardcode path
@@ -21,6 +26,15 @@ setup_python_path()
 import pseudo
 
 
+# Some of the outputs have too much scrolling; narrow it down:
+def preprocess_output(txt):
+  p1 = PSEUDOPYTHON_PATH.rstrip('/')
+  p2 = PSEUDO_PATH.rstrip('/')
+  txt = txt.replace(p1, '[PSEUDO_PYTHON]')
+  txt = txt.replace(p2, '[PSEUDO]')
+  txt = txt.replace('Contents/MacOS/Python: ', 'Contents/MacOS/Python:\n  ')
+  return txt
+
 def run_at_path(ext, path):
   if   ext == 'py': args = ['python3', path]
   elif ext == 'rb': args = ['ruby', path]
@@ -33,6 +47,13 @@ def run_at_path(ext, path):
   args.insert(0, '/usr/bin/env')
   return subprocess.check_output(args, stderr=subprocess.STDOUT)
 
+def file_content_is(path, expected_content):
+  try:
+    with open(path, 'r') as f:
+      return f.read() == expected_content
+  except Exception:
+    return False
+    
 
 microtests = []
 
@@ -50,6 +71,8 @@ class Microtest():
     self.key = key
     self.code = code
     self.statuses = {}
+    self.global_errors = []
+    self.errors = { ext: [] for lang, ext in LANGUAGES }
   
   # Make directories
   def make_dirs(self):
@@ -66,28 +89,42 @@ class Microtest():
   
   # Generate _original.pseudo.yaml
   def generate_yaml(self):
+    self.pseudo_python_passed = False
     try:
-      subprocess.check_call([
+      subprocess.check_output([
         '/usr/bin/env', 'PYTHONPATH=%s:%s' % (PSEUDO_PATH, PSEUDOPYTHON_PATH), 'python3',
         os.path.join(PSEUDOPYTHON_PATH, 'pseudo_python', 'main.py'),
         self.original_path,
-      ])
-    except subprocess.CalledProcessError:
-      pass
+      ], stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+      self.global_errors.append({
+        'kind': 'generate_yaml',
+        'output': preprocess_output(e.output.decode('utf-8')),
+      })
+    self.pseudo_python_passed = True
   
   # Generate variations
   def generate_variations(self):
-    try:
-      for lang, ext in LANGUAGES:
+    for lang, ext in LANGUAGES:
+      try:
         print('~~ %s ~~' % ext)
-        subprocess.check_call([
+        output = subprocess.check_output([
           '/usr/bin/env', 'PYTHONPATH=%s:%s' % (PSEUDO_PATH, PSEUDOPYTHON_PATH), 'python3',
           os.path.join(PSEUDOPYTHON_PATH, 'pseudo_python', 'main.py'),
           '_original.py',
           '%s.%s' % (self.key, ext),
-        ], cwd=os.path.abspath(self.dirname))
-    except subprocess.CalledProcessError:
-      pass
+          
+          # os.path.join(PSEUDO_PATH, 'pseudo', 'main.py'),
+          # '_original.pseudo.yaml',
+          # '_original.py',
+          # '%s.%s' % (self.key, ext),
+          
+        ], cwd=os.path.abspath(self.dirname), stderr=subprocess.STDOUT)
+      except subprocess.CalledProcessError as e:
+        self.errors[ext].append({
+          'kind': 'generate_variations',
+          'output': preprocess_output(e.output.decode('utf-8')),
+        })
   
   def run_variations(self):
     self.statuses = {}
@@ -100,9 +137,25 @@ class Microtest():
       try:
         txt = run_at_path(ext, path)
         lower_txt = txt.lower()
+        
+        # Push an error just in case
+        self.errors[ext].append({
+          'kind': 'run_variations_exit0',
+          'output': preprocess_output(txt.decode('utf-8')),
+        })
+      except subprocess.CalledProcessError as e:
+        self.errors[ext].append({
+          'kind': 'run_variations_exit1',
+          'output': preprocess_output(e.output.decode('utf-8')),
+        })
+        continue
       except Exception:
         self.statuses[ext] = 'bad'
         continue
+      
+      print('Testing!', self.key)
+      print('original:', repr(original_output))
+      print('passed:', repr(txt))
       
       if original_output == txt:
         self.statuses[ext] = 'good'
@@ -112,6 +165,10 @@ class Microtest():
         self.statuses[ext] = 'bad'
       else:
         self.statuses[ext] = 'warn'
+      
+      if self.statuses[ext] == 'good':
+        # Miraculously nothing went wrong. Pop the error we created
+        self.errors[ext].pop()
   
   def status(self, lang, ext):
     'Status of a given language'
@@ -149,12 +206,18 @@ def main():
   print("there are %d tests" % len(microtests))
   print(pseudo)
   
+  # global microtests
+  # microtests = microtests[:5]
   for mt in microtests:
     mt.make_dirs()
     mt.generate_original_py()
     mt.generate_yaml()
     mt.generate_variations()
     mt.run_variations()
+    
+    print('Errors for:' + mt.key)
+    print(len(mt.global_errors))
+    print({ext: len(mt.errors[ext]) for lang, ext in LANGUAGES})
   
   html_code = '\n'.join(generateHTML())
   print("OUTPUT")
@@ -180,8 +243,39 @@ def generateHTML():
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css">
+
+<script>
+$(function() {
+  $(".mt_status").click(function() {
+    var source_code = JSON.parse($(this).attr("source_code"));
+    var global_errors = JSON.parse($(this).attr("global_errors"));
+    var errors = JSON.parse($(this).attr("errors"));
+    
+    $("#errors").empty();
+    $("#errors").append($("<h3>Code: original.py</h3>"));
+    $("#errors").append($("<pre>").text(source_code));
+    
+    if (global_errors.length || errors.length) {
+      $("#errors").append($("<h3>Errors</h3>"));
+      function pushErrors(errs) {
+        var kids = [];
+        errs.forEach(function(err) {
+          kids.push($("<b>").text(err.kind));
+          kids.push($("<pre>").text(err.output));
+        });
+        $("#errors").append(kids);
+      }
+      
+      pushErrors(global_errors);
+      pushErrors(errors);
+    }
+  });
+});
+</script>
+
 </head>
 <body>
+  <div id="errors"></div>
   <table id="maintable">
     <tr class="mt_top">
       <th class="testname">Test Name</th>
@@ -197,7 +291,12 @@ def generateHTML():
     for lang, ext in LANGUAGES:
       status = mt.status(lang, ext)
       symbol = STATUS_SYMBOLS[status]
-      yield '<td class="mt_status mt_status_%s">%s</td>' % (html.escape(status), html.escape(symbol))
+      yield '<td class="mt_status mt_status_%s" global_errors="%s" errors="%s" source_code="%s">%s</td>' % (
+        html.escape(status),
+        obj_to_json_html(mt.global_errors),
+        obj_to_json_html(mt.errors[ext]),
+        obj_to_json_html(mt.code),
+        html.escape(symbol))
     yield '</tr>'
   
   yield '''
