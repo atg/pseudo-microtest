@@ -190,6 +190,7 @@ def generateHTML():
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="ascetic.css" rel="stylesheet">
 </head>
 <body>
     <table id="maintable">
@@ -224,8 +225,13 @@ def generateHTML():
     
     yield '''
     </table>
+    <script type='text/javascript' src='jquery.js'>
+    </script>
+    <script type='text/javascript' src='highlight.pack.js'>
+    </script>
     <script type='text/javascript' src='output.js'>
     </script>
+    <script type='text/javascript'> hljs.initHighlightingOnLoad() </script>
 </body>
 </html>
     '''
