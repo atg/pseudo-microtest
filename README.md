@@ -39,3 +39,12 @@ The point of this tool is to test pseudo with a lot of languages, so you'll need
 2. Run `python3 main.py <path/to/pseudo> <path/to/pseudo-python>`
 
 3. Open `html/output.html`
+
+
+## Technologies
+
+HTML output uses `highlight.js` for highlighting
+
+## Screenshots
+
+![a screenshot showing a table with red, yellow and green cells corresponding to errors/warnings and ok and expanded case line with outputs and translations for each language](http://i.imgur.com/K9rzsPF.png)
