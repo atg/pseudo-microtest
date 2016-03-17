@@ -71,7 +71,9 @@ class Microtest():
     self.key = key
     self.code = code
     self.statuses = {}
+    
     self.global_errors = []
+    self.codes = {}
     self.errors = { ext: [] for lang, ext in LANGUAGES }
   
   # Make directories
@@ -137,6 +139,9 @@ class Microtest():
       try:
         txt = run_at_path(ext, path)
         lower_txt = txt.lower()
+        
+        with open(path, 'r') as f:
+          self.codes[ext] = f.read()
         
         # Push an error just in case
         self.errors[ext].append({
@@ -206,8 +211,8 @@ def main():
   print("there are %d tests" % len(microtests))
   print(pseudo)
   
-  # global microtests
-  # microtests = microtests[:5]
+  global microtests
+  microtests = microtests[:5]
   for mt in microtests:
     mt.make_dirs()
     mt.generate_original_py()
@@ -240,20 +245,42 @@ def generateHTML():
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>pseudo microtests</title>
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css">
-
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-tomorrow.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-ruby.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-go.min.js"></script>
+  
 <script>
 $(function() {
   $(".mt_status").click(function() {
+    var hljslang = $(this).attr("hljslang");
     var source_code = JSON.parse($(this).attr("source_code"));
+    var generated_source_code = JSON.parse($(this).attr("generated_source_code"));
+    
     var global_errors = JSON.parse($(this).attr("global_errors"));
     var errors = JSON.parse($(this).attr("errors"));
     
+    function makeCodeBlock(code, lang) {
+      var pre = $("<pre>");
+      var code = $("<code>").addClass("language-" + lang).text(code);
+      pre.append(code);
+      return pre[0];
+    }
+    
     $("#errors").empty();
     $("#errors").append($("<h3>Code: original.py</h3>"));
-    $("#errors").append($("<pre>").text(source_code));
+    $("#errors").append(makeCodeBlock(source_code, "python"));
+    
+    $("#errors").append($("<h3>Code: generated</h3>"));
+    $("#errors").append(makeCodeBlock(generated_source_code, hljslang));
     
     if (global_errors.length || errors.length) {
       $("#errors").append($("<h3>Errors</h3>"));
@@ -269,13 +296,15 @@ $(function() {
       pushErrors(global_errors);
       pushErrors(errors);
     }
+    
+    Prism.highlightAll();
   });
 });
 </script>
 
 </head>
 <body>
-  <div id="errors"></div>
+  <div id="errors"><b>&larr; Click on an icon to see the results for that test.</b></div>
   <table id="maintable">
     <tr class="mt_top">
       <th class="testname">Test Name</th>
@@ -291,12 +320,15 @@ $(function() {
     for lang, ext in LANGUAGES:
       status = mt.status(lang, ext)
       symbol = STATUS_SYMBOLS[status]
-      yield '<td class="mt_status mt_status_%s" global_errors="%s" errors="%s" source_code="%s">%s</td>' % (
+      yield '<td class="mt_status mt_status_%s" global_errors="%s" errors="%s" source_code="%s" generated_source_code="%s" hljslang="%s">%s</td>' % (
         html.escape(status),
         obj_to_json_html(mt.global_errors),
         obj_to_json_html(mt.errors[ext]),
         obj_to_json_html(mt.code),
+        obj_to_json_html(mt.codes.get(ext)),
+        html.escape(lang),
         html.escape(symbol))
+      print("CODE GET", mt.codes)
     yield '</tr>'
   
   yield '''
