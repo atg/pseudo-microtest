@@ -8,7 +8,6 @@ from pprint import pprint
 import json
 import traceback
 
-
 REMOVE_ANSI_RE = rx(r'\x1b[^m]*m')
 
 def obj_to_json_html(obj):
@@ -73,6 +72,12 @@ LANGUAGES = [
   ("go", "go"),
   # ("c#", "cs"),
   # ("c++", "cpp"),
+  
+  # python, ruby, javascript
+  # c#, java
+  # go, swift
+  # c++, rust
+  
 ]
 
 class Microtest():
