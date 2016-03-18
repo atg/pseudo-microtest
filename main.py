@@ -194,8 +194,6 @@ class Microtest():
       
       if original_output == txt:
         self.statuses[ext] = 'good'
-      elif txt.count(b'\n') > 4:
-        self.statuses[ext] = 'bad'
       elif b'error' in lower_txt or b'exception' in lower_txt:
         self.statuses[ext] = 'bad'
       else:
