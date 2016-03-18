@@ -138,9 +138,9 @@ class Microtest():
     for lang, ext in LANGUAGES:
       try:
         output_path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
-        self.variations[ext] = pseudo.generate_from_yaml(self.pseudo_ast, lang)
+        self.codes[ext] = pseudo.generate_from_yaml(self.pseudo_ast, lang)
         with open(output_path, 'w') as f:
-          f.write(self.variations[ext])
+          f.write(self.codes[ext])
         print('~~ %s ~~' % ext)
       except Exception as e:
         print('~~ %s [error] ~~' % ext)
