@@ -31,6 +31,12 @@ if 5 % 2 == 1: print("ok")
 # -1 is congruent to 1 (mod 2)
 if (-1) % 2 == 1: print("ok")
 
+# There are no negative integers in Z/nZ!
+# For languages that don't implement modulo division properly, you'll need a function such as
+#   function _correct_mod_int(a: int, b: int) -> int {
+#     return ((a % b) + b) % b);
+#   }
+
 # [int.pow]
 if 3 ** 3 == 27: print("ok")
 
