@@ -8,6 +8,7 @@
 # Some of the tests are from PyPy
 # https://github.com/rfk/pypy/blob/master/lib-python/2.7/test/string_tests.py
 
+
 ## - Integers -
 # [int.add]
 if 10 + 20 == 30: print("ok")
@@ -26,6 +27,9 @@ if 20 / 10 == 2: print("ok")
 
 # [int.rem]
 if 5 % 2 == 1: print("ok")
+
+# [int.precedence]
+if 3 ** 5 * 7 + 11 ** 2 * 13 == 3274: print("ok")
 
 # [int.mod]
 # -1 is congruent to 1 (mod 2)
@@ -54,8 +58,35 @@ if -23 >> 2 == -6: print("ok7")
 
 ## - Floats -
 # [float.arithmetic]
-if 29.0 < 10.0 + 20.0 < 31.0: print("ok1")
-if -11.0 < 10.0 - 20.0 < -9.0: print("ok2")
+if 29.0 < 10.0 + 20.0 < 31.0: print("ok add")
+if -11.0 < 10.0 - 20.0 < -9.0: print("ok sub/neg")
+if 199.0 < 10.0 * 20.0 < 201.0: print("ok mul")
+if 1.0 < 20 / 10 < 3.0: print("ok div")
+
+# [float.fmod]
+if 0.5 < 2.4 % 1.8 < 0.65: print("ok fmod positive")
+if 0.5 < (-1.8) % 2.4 < 0.65: print("ok fmod negative")
+
+# [float.comparison]
+if 0.1 == 0.1: print("ok eq 1")
+if 0.1 != 0.2: print("ok neq")
+
+if 0.1 < 0.2: print("ok lt 1")
+if not (0.1 < 0.1): print("ok lt 2")
+
+if 0.2 > 0.1: print("ok gt 1")
+if not (0.1 > 0.1): print("ok gt 2")
+
+if 0.1 <= 0.1: print("ok lteq 1")
+if 0.1 <= 0.2: print("ok lteq 2")
+
+if 0.1 >= 0.1: print("ok lteq 1")
+if 0.2 >= 0.2: print("ok lteq 2")
+
+# [float.subnormal]
+# I'm not particularly attached to these tests, feel free to ignore them.
+if 0.00000000000000000000000000000000000000001 != 0.0: print("ok subnormal is not 0")
+if 0.00000000000000000000000000000000000000001 == 0.00000000000000000000000000000000000000001: print("ok subnormal self equal")
 
 
 ## - Logic -
@@ -637,3 +668,178 @@ class Barney:
     print(self.status)
 barney = Barney()
 barney.happyAndKnowsIt()
+
+# [class.public_attributes]
+class Barney:
+  def __init__(self):
+    self.status = 'not ok'
+barney = Barney()
+barney.status = "ok"
+print(barney.status)
+
+# [class.public_static_attributes]
+class Barney:
+  status = 'not ok'
+Barney.status = "ok"
+print(Barney.status)
+
+# [class.class_method.void_void]
+class Barney:
+  def __init__(self):
+    pass
+  @classmethod
+  def happyAndKnowsIt(klass):
+    print("ok")
+Barney.happyAndKnowsIt()
+
+# [class.static_method.void_void]
+class Barney:
+  def __init__(self):
+    pass
+  @staticmethod
+  def happyAndKnowsIt():
+    print("ok")
+Barney.happyAndKnowsIt()
+
+
+## - Standard Library -
+# https://docs.python.org/dev/library/index.html
+
+# [this file is getting a bit long, so it might be sensible to split it up
+
+# Most commonly used Python libraries:
+#  string
+#  re
+#  
+#  datetime
+#  calendar
+#  collections
+#  array
+#  copy
+#  pprint
+#  enum
+#  
+#  math
+#  cmath
+#  decimal
+#  fractions
+#  random
+#  statistics
+#  
+#  itertools
+#  functools
+#  operator
+#  
+#  shutil
+#  
+#  sqlite3
+#  hashlib
+#  
+#  os
+#  io
+#  time
+#  argparse
+#  
+#  subprocess
+#  
+#  json
+#  base64
+#  
+#  html
+#  xml.dom.minidom
+#  
+#  uuid
+#  traceback
+
+## - Third Party Libraries -
+#  requests
+
+
+
+
+## - Random -
+# [lib.random.randint]
+import random
+if 10 <= random.randint(10, 11) <= 11:
+  print("ok 1")
+if random.randint(10, 10) == 10:
+  print("ok 2")
+
+# TODO: more random tests
+
+## - Time -
+# [lib.time.time]
+import time
+t = time.time()
+if int(t) == t: print("not ok")
+t2 = int(t)
+print("the current time is roughly %d" % (t2 - t2 % 100))
+
+# TODO: more time tests
+# [lib.time.sleep
+
+## - JSON -
+# [lib.json.dumps]
+import json
+print(json.dumps([1, 2, 3]))
+
+# [lib.json.loads]
+import json
+if json.loads("[1, 2, 3]") == [1, 2, 3]: print("ok")
+
+# TODO: json.dump() and json.load(), and all the options to dumps, dump, loads, load
+
+
+
+
+# Tests that don't exist yet:
+# Files
+#   file.___
+
+# - Process/Filesystem -
+# https://docs.python.org/dev/library/os.html
+# [lib.os.environ
+# [lib.os.chdir
+# [lib.os.fchdir
+# [lib.os.getcwd
+# [lib.os.getenv
+# [lib.os.getegid
+# [lib.os.geteuid
+# [lib.os.getgid
+# [lib.os.getlogin
+# [lib.os.getpgid
+# [lib.os.getpgrp
+# [lib.os.getpid
+# [lib.os.getppid
+# [lib.os.getuid
+# [lib.os.putenv
+# ...etc
+
+# - Regex -
+# https://docs.python.org/dev/library/re.html
+# [lib.re.search
+# [lib.re.match
+# [lib.re.fullmatch
+# [lib.re.split
+# [lib.re.findall
+# [lib.re.finditer
+# [lib.re.sub
+# [lib.re.subn
+
+# [lib.re.match.group
+# [lib.re.match.groups
+# [lib.re.match.groupdict
+# [lib.re.match.start
+# [lib.re.match.end
+# [lib.re.match.span
+
+
+# - Subprocess -
+# https://docs.python.org/dev/library/subprocess.html
+# [lib.subprocess.check_call
+# [lib.subprocess.check_output
+
+# - IO -
+# https://docs.python.org/dev/library/io.html
+# [lib.io.stringio]
+

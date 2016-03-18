@@ -10,7 +10,7 @@ body {
 
 table {
   border-collapse: collapse;
-  width: 35%;
+  width: 500px;
   position: absolute;
   top: 0;
   left: 0;
@@ -53,7 +53,7 @@ tr:nth-child(even) {
   padding: 20px;
   color: hsl(350, 50%, 10%);
   position: absolute;
-  width: 65%;
+  width: calc(100% - 500px);
   right: 0;
   top: 0;
   z-index: 1;
