@@ -22,22 +22,39 @@ tr:nth-child(even) {
   padding-left: 20px;
 }
 .mt_status {
+  font-family: "Apple Color Emoji", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+td.mt_status, th.mt_status {
   width: 12%;
   text-align: center;
   cursor: default;
+}
+.mt_top td {
+  text-align: center;
+  font-weight: bold;
+  padding: 8px 0;
+  vertical-align: middle;
 }
 .mt_status_bad {
   /* background-color: red; */
   background-color: white;
 }
 .mt_status_good {
+  /* background-color: hsl(130, 95%, 40%); */
   background-color: green;
 }
 .mt_status_warn {
   background-color: yellow;
 }
-.mt_status_untested {
+.mt_status_untested, .mt_status_yaml_failed {
   background-color: white;
+}
+.mt_status_generation_failed {
+
+}
+.mt_status_runtime_failed {
+  /* background-color: hsl(60, 100%, 80%); */
+  /* text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5); */
 }
 
 #errors pre {

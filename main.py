@@ -113,7 +113,7 @@ class Microtest():
   def generate_yaml(self):
     self.pseudo_python_passed = False
     for lang, ext in LANGUAGES:
-      self.statuses[ext] = 'bad'
+      self.statuses[ext] = 'yaml_failed'
     
     self.yaml_path = os.path.join(self.dirname, '_original.pseudo.yaml')
     # write to a file as an example and for debugging
@@ -142,6 +142,7 @@ class Microtest():
         with open(output_path, 'w') as f:
           f.write(self.codes[ext])
         print('~~ %s ~~' % ext)
+        self.statuses[ext] = '_should_continue'
       except Exception as e:
         print('~~ %s [error] ~~' % ext)
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -149,7 +150,7 @@ class Microtest():
           'kind': 'generate_variations',
           'output': preprocess_output('\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback))),
         })
-        self.statuses[ext] = 'bad'
+        self.statuses[ext] = 'generation_failed'
     
   def run_variations(self):
     original_output = run_at_path('py', self.original_path)
@@ -158,6 +159,9 @@ class Microtest():
       return
     
     for lang, ext in LANGUAGES:
+      if self.statuses[ext] != '_should_continue':
+        continue
+      
       path = os.path.join(self.dirname, '%s.%s' % (self.key, ext))
       print('Running %s code' % lang, path)
       
@@ -182,10 +186,10 @@ class Microtest():
           'kind': 'run_variations_exit1',
           'output': preprocess_output(e.output.decode('utf-8')),
         })
-        self.statuses[ext] = 'bad'
+        self.statuses[ext] = 'runtime_failed'
         continue
       except Exception:
-        self.statuses[ext] = 'bad'
+        self.statuses[ext] = 'runtime_failed'
         continue
       
       print('Testing!', self.key)
@@ -195,7 +199,7 @@ class Microtest():
       if original_output == txt:
         self.statuses[ext] = 'good'
       elif b'error' in lower_txt or b'exception' in lower_txt:
-        self.statuses[ext] = 'bad'
+        self.statuses[ext] = 'runtime_failed'
       else:
         self.statuses[ext] = 'warn'
       
@@ -264,6 +268,10 @@ def generateHTML():
     'good': '✅',
     'warn': '⚠️',
     'bad': '❌',
+    
+    'yaml_failed': '❌',
+    'generation_failed': '❌🍋',
+    'runtime_failed': '❌🏃',
   }
   yield '''
 <!DOCTYPE html>
@@ -335,13 +343,22 @@ $(function() {
 
 </head>
 <body>
-  <div id="errors"><b>&larr; Click on an icon to see the results for that test.</b></div>
+  <div id="errors"><b>&larr; Click on an icon to see the results for that test.</b><br>
+<pre>
+❔ untested
+❌ Failed to even generate YAML (the problem was in pseudo-python).
+❌🍋 Generation failed. (the problem was in pseudo)
+❌🏃 The test code failed to run or compile.
+<span class="mt_status">⚠️</span> The test code ran, but the output was incorrect so the test didn't pass.
+✅ Good!
+</pre>
+  </div>
   <table id="maintable">
     <tr class="mt_top">
       <th class="testname">Test Name</th>
   '''
   for lang, ext in LANGUAGES:
-    yield '<td>%s</td>' % html.escape(lang)
+    yield '<td>%s</td>' % html.escape(ext)
   
   yield '</tr>'
   
