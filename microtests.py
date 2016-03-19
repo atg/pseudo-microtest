@@ -183,6 +183,32 @@ if False:
 else:
   print("ok")
 
+## - Comprehensions -
+# [list.comprehension]
+xs = [1, 2, 3, 4, 5]
+ys = [x * 5 for x in xs if x % 2 == 1]
+for y in ys:
+  print("%d" % y)
+
+# [set.comprehension]
+xs = [1, 2, 3, 4, 5]
+ys = {x * 5 for x in xs if x % 2 == 1}
+print("%d" % sum(ys))
+
+# [dict.comprehension]
+xs = ["a", "b", "c", "d", "e"]
+ys = {x: x for x in xs if x != 'c'}
+print(ys['a'])
+print(ys['b'])
+print(ys['d'])
+print(ys['e'])
+
+
+# [generator.comprehension]
+xs = [1, 2, 3, 4, 5]
+ys = (x * 5 for x in xs if x % 2 == 1)
+for y in ys:
+  print("%d" % y)
 
 
 ## - Lists -
@@ -491,7 +517,7 @@ if {20, 30} <= {10, 20, 30}: print("ok2")
 if {20, 30}.issubset({30, 20}): print("ok3")
 if {20, 30}.issubset({10, 20, 30}): print("ok4")
 
-# [set.supersetof]
+# [set.issuperset]
 if {20, 30} >= {30, 20}: print("ok1")
 if {10, 20, 30} >= {30, 20}: print("ok2")
 if {20, 30}.issuperset({30, 20}): print("ok3")
@@ -552,7 +578,7 @@ xs = {10, 20, 30}
 xs.remove(20)
 if xs == {30, 10}: print("ok")
 
-
+# [set.update]
 xs = {10, 20, 30}
 xs.update({40, 30, 20})
 if xs == {10, 40, 20, 30}: print("ok")
